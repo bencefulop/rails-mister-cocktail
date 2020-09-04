@@ -15,7 +15,9 @@ class CocktailsController < ApplicationController
     redirect_to cocktails_path
   end
 
-  def show; end
+  def show
+    @dose = Dose.new
+  end
 
   private
   

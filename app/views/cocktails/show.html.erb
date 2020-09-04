@@ -8,5 +8,12 @@
   <% end %>
 </ul>
 
-<%= link_to "Back to all cocktails", cocktails_path %> <%= link_to "Add new
-dose", new_cocktail_dose_path(@cocktail) %>
+<h1>Add dose/ingredient</h1>
+<%= simple_form_for [@cocktail, @dose]  do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to "Back to all cocktails", cocktails_path %>
