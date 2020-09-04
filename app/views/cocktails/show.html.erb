@@ -8,7 +8,7 @@
   <% end %>
 </ul>
 
-<h1>Add dose/ingredient</h1>
+<h3>Add ingredient:</h3>
 <%= simple_form_for [@cocktail, @dose]  do |f| %>
   <%= f.input :description %>
   <%= f.association :ingredient %>
