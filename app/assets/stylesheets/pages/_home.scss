@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
 body {
-  background-color: #fdfd96;
+  background: url('https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599281566/landing-bg_lm1op6.jpg')
+    no-repeat center center fixed $light-yellow;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

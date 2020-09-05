@@ -1,8 +1,42 @@
 .home-banner {
-  background-image: url('https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599281566/landing-bg_lm1op6.jpg');
-  background-size: cover;
   height: 100vh;
   color: #eee;
   text-align: center;
-  padding-top: 40vh;
+  padding-top: 25vh;
+}
+
+.home-banner h1 {
+  font-family: 'Teko';
+  font-size: 150px;
+  color: $light-magenta;
+  font-style: italic;
+  letter-spacing: 5px;
+  margin-bottom: 50px;
+}
+
+.home-banner h2 {
+  font-family: 'Nunito';
+  font-size: 50px;
+  color: $light-magenta;
+  letter-spacing: 2px;
+}
+
+.home-banner a {
+  text-decoration: none;
+  background-color: $dark-yellow;
+}
+
+.home-banner a:hover {
+  text-decoration: none;
+}
+
+.home-banner btn {
+  padding: 8px 24px;
+  border-radius: 2px;
+  background: $dark-yellow;
+  transition: background 0.3s ease;
+}
+
+.home-banner .btn:hover {
+  background: $dark-yellow;
 }

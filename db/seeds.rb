@@ -14,9 +14,11 @@ puts "creating a 100 ingredients"
 ingredient_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredients = JSON.parse(open(ingredient_url).read)
 
+
 ingredients["drinks"].each do |ingredient|
 Ingredient.create!(name: ingredient["strIngredient1"])
-  end
+end
+
 
 puts "100 ingredients created"
 

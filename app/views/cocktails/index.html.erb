@@ -1,19 +1,17 @@
 <div class="home-banner">
-  <h1>Discover Cocktails</h1>
-  <h2><%= link_to 'Add Your Own', new_cocktail_path %></h2>  
+  <h1>Project Cocktail</h1>
+  <h2 class="btn btn-flat"><%= link_to 'Add Your Own', new_cocktail_path %></h2>
 </div>
-<div class="container d-flex flex-wrap justify-content-center">
+<div class="container-fluid p-0 d-flex flex-wrap justify-content-center" id="cocktail-list">
 <% @cocktails.each do |cocktail|%>
-  <div class="card-product m-3">
   <% if cocktail.photo.attached? %>
-  <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-product m-3" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path cocktail.photo.key %>')">
   <% else %>
-  <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg", width: 360, height: 250, crop: :fill) %>
+    <div class="card-product m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg")%>')">
   <% end %>
-    <div class="card-product-infos">
-      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2> 
-      <p>click to learn <strong>more</strong> about this cocktail.</p>
-    </div>
+  <div class="card-product-infos">
+    <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2> 
+  </div>
   </div>
 <% end %>
 </div>
