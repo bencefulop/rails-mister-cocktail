@@ -1,7 +1,11 @@
 <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599196586/icpb8mfql5fyvxevekoe.jpg",
       width: 400, height: 300, crop: :fill) %>
 
-<h1>List of all cocktails</h1>
+<h1><%= link_to "List of all cocktails", root_path %></h1>
+<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :name, input_html: {value: ""} %>   
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
 <ul>
   <% @cocktails.each do |cocktail|%>
   <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>

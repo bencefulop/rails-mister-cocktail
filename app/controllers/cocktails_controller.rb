@@ -1,8 +1,13 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show]
+  before_action :set_cocktail, only: [:show, :update]
 
   def index
     @cocktails = Cocktail.all
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @cocktails = Cocktail.where("name ILIKE ?", "%#{@name}%")
+    end
   end
 
   def new
@@ -17,6 +22,11 @@ class CocktailsController < ApplicationController
 
   def show
     @dose = Dose.new
+  end
+
+  def update
+    @cocktail.update(cocktail_params)
+    redirect_to cocktail_path(@cocktail)
   end
 
   private

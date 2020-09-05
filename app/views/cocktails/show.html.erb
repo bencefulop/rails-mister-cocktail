@@ -5,6 +5,17 @@
   <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg", width: 360, height: 250, crop: :fill) %>
 <% end %>
 <h4>Name: <%= @cocktail.name %></h4>
+<h6>Update Cocktail Photo</h6>
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= f.input :photo, as: :file %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 <p>What you need to make:</p>
 <ul>
   <% @cocktail.doses.each do |dose| %>

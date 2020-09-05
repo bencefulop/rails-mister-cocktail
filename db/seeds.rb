@@ -7,18 +7,26 @@ Ingredient.destroy_all
 Dose.destroy_all
 Cocktail.destroy_all
 
-url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-ingredient_serialized = open(url).read
-ingredient = JSON.parse(ingredient_serialized)
+puts "Database cleaned"
 
 puts "creating a 100 ingredients"
-n = 0
-100.times do
-  new_ingredient = Ingredient.new(
-    name: ingredient["drinks"][n]["strIngredient1"],
-  )
-  new_ingredient.save
-  n += 1
-end
+
+ingredient_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients = JSON.parse(open(ingredient_url).read)
+
+ingredients["drinks"].each do |ingredient|
+Ingredient.create!(name: ingredient["strIngredient1"])
+  end
 
 puts "100 ingredients created"
+
+puts "Creating cocktails"
+
+cocktail_url = "https://raw.githubusercontent.com/maltyeva/iba-cocktails/master/recipes.json"
+cocktails = JSON.parse(open(cocktail_url).read)
+
+cocktails.each do |coktail|
+Cocktail.create!( name: coktail["name"])
+  end
+
+puts "Cocktails created"
