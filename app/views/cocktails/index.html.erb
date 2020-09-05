@@ -1,15 +1,19 @@
-<%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599196586/icpb8mfql5fyvxevekoe.jpg",
-      width: 400, height: 300, crop: :fill) %>
-
-<h1><%= link_to "List of all cocktails", root_path %></h1>
-<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :name, input_html: {value: ""} %>   
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
-<ul>
-  <% @cocktails.each do |cocktail|%>
-  <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+<div class="home-banner">
+  <h1>Discover Cocktails</h1>
+  <h2><%= link_to 'Add Your Own', new_cocktail_path %></h2>  
+</div>
+<div class="container d-flex flex-wrap justify-content-center">
+<% @cocktails.each do |cocktail|%>
+  <div class="card-product m-3">
+  <% if cocktail.photo.attached? %>
+  <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+  <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg", width: 360, height: 250, crop: :fill) %>
   <% end %>
-</ul>
-
-<%= link_to 'Add cocktail', new_cocktail_path %>
+    <div class="card-product-infos">
+      <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2> 
+      <p>click to learn <strong>more</strong> about this cocktail.</p>
+    </div>
+  </div>
+<% end %>
+</div>

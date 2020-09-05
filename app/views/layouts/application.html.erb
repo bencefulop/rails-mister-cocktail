@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsMisterCocktail</title>
+    <title>Project Cocktail</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body> 
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599286809/page-logo_omiam0.png" %>
+      <% end %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+            <%= f.input :name, input_html: {value: ""}, label: false, :placeholder => 'Search cocktails...' %>
+            <%= f.submit "Search", class: "btn btn-primary" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+      <%= yield %>
   </body>
 </html>
+

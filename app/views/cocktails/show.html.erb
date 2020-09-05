@@ -1,8 +1,8 @@
 <h1>Cocktail details</h1>
 <% if @cocktail.photo.attached? %>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @cocktail.photo.key %>
 <% else %>
-  <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg", width: 360, height: 250, crop: :fill) %>
+  <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg") %>
 <% end %>
 <h4>Name: <%= @cocktail.name %></h4>
 <h6>Update Cocktail Photo</h6>
