@@ -18,29 +18,31 @@
     </div>
   </div>
   <div class="options-container d-flex justify-content-center">
-    <div class="item-options">
-      <h6>Update Cocktail Photo</h6>
+    <div class="item-options d-flex flex-column">
+      <h4> Update Cocktail Photo: </h4>
       <%= simple_form_for(@cocktail) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <div class="form-inputs">
-        <%= f.input :photo, as: :file %>
+        <%= f.input :photo, as: :file, label: false %>
       </div>
-      <div class="form-actions">
-        <%= f.button :submit %>
+      <div class="form-submit">
+        <%= f.button :submit, class: "btn btn-flat update-btn" %>
       </div>
       <% end %>
     </div>
-    <div class="item-options">
-    <h3>Add ingredient:</h3>
-    <%= simple_form_for [@cocktail, @dose]  do |f| %>
-      <%= f.input :description %>
-      <%= f.association :ingredient, collection: Ingredient.order('name ASC') %>
-      <%= f.button :submit %>
+    <div class="item-options d-flex flex-column">
+        <h4>Add ingredient:</h4>
+        <%= simple_form_for [@cocktail, @dose]  do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient, collection: Ingredient.order('name ASC') %>
+      <div class="form-submit">
+       <%= f.button :submit, class: "btn btn-flat" %>
+      </div>
     <% end %>
     </div>
   </div>
+  <div class="bottom-card">
+    <h3><%= link_to "Back to all cocktails", root_path %></h3>
+  </div>
 </div>
-
-
-<%= link_to "Back to all cocktails", root_path %>
