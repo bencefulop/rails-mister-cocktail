@@ -9,9 +9,9 @@
   <% else %>
     <div class="card-product m-3" style="background-image: url('<%= cl_image_path("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg")%>')">
   <% end %>
-  <div class="card-product-infos">
-    <%= link_to cocktail.name, cocktail_path(cocktail)%> 
-  </div>
+    <div class="card-product-infos">
+      <%= link_to cocktail.name, cocktail_path(cocktail)%> 
+    </div>
   </div>
 <% end %>
 </div>
