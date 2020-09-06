@@ -1,35 +1,46 @@
-<h1>Cocktail details</h1>
-<% if @cocktail.photo.attached? %>
-  <%= cl_image_tag @cocktail.photo.key %>
-<% else %>
-  <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg") %>
-<% end %>
-<h4>Name: <%= @cocktail.name %></h4>
-<h6>Update Cocktail Photo</h6>
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div class="form-inputs">
-    <%= f.input :photo, as: :file %>
+<div class="container-fluid">
+  <h1><%= @cocktail.name %></h1>
+  <div class="item-card d-flex justify-content-start">
+    <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag @cocktail.photo.key %>
+    <% else %>
+    <%= cl_image_tag("https://res.cloudinary.com/dvxd5rkn7/image/upload/v1599199607/no-image-found-360x250_copy_vpbavh.jpg") %>
+    <% end %>
+    <div class="item-card-info d-flex flex-column">
+      <h4>What you need to make:</h4>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li>
+            <%= dose.description %> of <%= dose.ingredient.name %> <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, dose_path(dose),  method: :delete, data: { confirm: "Are you sure?" } %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="options-container d-flex justify-content-center">
+    <div class="item-options">
+      <h6>Update Cocktail Photo</h6>
+      <%= simple_form_for(@cocktail) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-inputs">
+        <%= f.input :photo, as: :file %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+      <% end %>
+    </div>
+    <div class="item-options">
+    <h3>Add ingredient:</h3>
+    <%= simple_form_for [@cocktail, @dose]  do |f| %>
+      <%= f.input :description %>
+      <%= f.association :ingredient, collection: Ingredient.order('name ASC') %>
+      <%= f.button :submit %>
+    <% end %>
+    </div>
   </div>
-<% end %>
-<p>What you need to make:</p>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-  <li>
-    <%= dose.description %> of <%= dose.ingredient.name %> <%= link_to "delete item", dose_path(dose),  method: :delete, data: { confirm: "Are you sure?" } %></li>
-  <% end %>
-</ul>
-
-<h3>Add ingredient:</h3>
-<%= simple_form_for [@cocktail, @dose]  do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient, collection: Ingredient.order('name ASC') %>
-  <%= f.button :submit %>
-<% end %>
+</div>
 
 
 <%= link_to "Back to all cocktails", root_path %>

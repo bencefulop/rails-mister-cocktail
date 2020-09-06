@@ -11,8 +11,8 @@
   margin-bottom: 50px;
 }
 
-.form-card {
-  margin: auto;
+.new-card {
+  margin: 15px auto;
   font-family: 'Montserrat';
   overflow: hidden;
   height: 250px;
@@ -28,7 +28,7 @@
   border-radius: 2px;
 }
 
-.form-card .input {
+.item-card .input {
   padding: 10px 0px;
   margin-left: 50px;
 }
@@ -37,6 +37,8 @@ label {
   display: inline-block;
   margin-bottom: 0.5rem;
   margin-right: 0.6rem;
+  margin-left: 0.6rem;
+  font-size: 20px;
 }
 
 .form-inputs {
@@ -45,4 +47,8 @@ label {
 
 .form-submit {
   margin-top: 25px;
+}
+
+.form-submit .btn {
+  font-size: 25px;
 }
