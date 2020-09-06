@@ -17,10 +17,10 @@
       <% end %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
             <%= f.input :name, input_html: {value: ""}, label: false, :placeholder => 'Search cocktails...' %>
-            <%= f.submit "Search", class: "btn btn-primary" %>
+            <%= f.submit "Search", class: "btn btn-flat" %>
             <% end %>
           </li>
         </ul>

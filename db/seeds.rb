@@ -27,8 +27,11 @@ puts "Creating cocktails"
 cocktail_url = "https://raw.githubusercontent.com/maltyeva/iba-cocktails/master/recipes.json"
 cocktails = JSON.parse(open(cocktail_url).read)
 
-cocktails.each do |coktail|
-Cocktail.create!( name: coktail["name"])
-  end
+n = 0
+
+while n < 16 do
+  Cocktail.create!( name: cocktails[n]["name"])
+  n += 1
+end
 
 puts "Cocktails created"

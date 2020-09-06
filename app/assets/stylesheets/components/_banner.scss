@@ -14,29 +14,25 @@
   margin-bottom: 50px;
 }
 
-.home-banner h2 {
-  font-family: 'Nunito';
-  font-size: 50px;
-  color: $light-magenta;
-  letter-spacing: 2px;
-}
-
 .home-banner a {
   text-decoration: none;
-  background-color: $dark-yellow;
+  font-size: 30px;
 }
 
 .home-banner a:hover {
   text-decoration: none;
 }
 
-.home-banner btn {
+.btn-flat {
+  color: white;
   padding: 8px 24px;
-  border-radius: 2px;
-  background: $dark-yellow;
+  border-radius: 4px;
+  background: $dark-magenta;
   transition: background 0.3s ease;
+  font-family: 'Montserrat';
 }
 
-.home-banner .btn:hover {
-  background: $dark-yellow;
+.btn-flat:hover {
+  background: $light-magenta;
+  color: white;
 }

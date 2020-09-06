@@ -1,0 +1,48 @@
+.container-fluid {
+  margin-top: 150px;
+}
+
+.container-fluid h1 {
+  font-family: 'Teko';
+  font-size: 90px;
+  color: $light-magenta;
+  font-style: italic;
+  letter-spacing: 5px;
+  margin-bottom: 50px;
+}
+
+.form-card {
+  margin: auto;
+  font-family: 'Montserrat';
+  overflow: hidden;
+  height: 250px;
+  width: 80vw;
+  background: rgb(254, 254, 254);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: $dark-magenta;
+  border-width: 10px;
+  border-radius: 2px;
+}
+
+.form-card .input {
+  padding: 10px 0px;
+  margin-left: 50px;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-right: 0.6rem;
+}
+
+.form-inputs {
+  margin: auto;
+}
+
+.form-submit {
+  margin-top: 25px;
+}

@@ -1,23 +1,22 @@
 .card-product {
-  font-family: 'Nunito';
+  font-family: 'Montserrat';
   overflow: hidden;
   height: 250px;
   width: 30vw;
-  background: white;
+  background: $dark-magenta;
   display: flex;
   justify-content: center;
   align-items: center;
   border-style: solid;
-  border-color: $light-magenta;
+  border-color: $dark-magenta;
   border-width: 10px;
   border-radius: 2px;
   background-position: center;
   background-size: cover;
 }
-
 .card-product:hover {
   border-style: solid;
-  border-color: $dark-magenta;
+  border-color: $light-magenta;
   border-width: 10px;
   transition: border-color 0.2s ease;
 }
@@ -25,21 +24,16 @@
 .card-product img {
   height: 100%;
   width: 150px;
-  object-fit: cover;
 }
 
-.card-product h2 {
-  font-size: 26px;
+.card-product-infos a {
+  text-decoration: none;
+  color: white;
+  font-size: 45px;
   font-weight: bold;
-  margin: 0;
 }
 
-.card-product a {
+.card-product-infos a:hover {
   text-decoration: none;
-  color: $dark-blue;
-}
-
-.card-product a:hover {
-  text-decoration: none;
-  color: $dark-blue;
+  color: white;
 }
